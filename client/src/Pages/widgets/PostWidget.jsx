@@ -19,14 +19,17 @@ function PostWidget({ post }) {
   const { palette } = useTheme();
 
   async function handleLike() {
-    const res = await fetch(`http://localhost:3000/api/v1/${post._id}/like`, {
-      method: "PATCH",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ userId: loggedInUserId }),
-    });
+    const res = await fetch(
+      `https://flockup.onrender.com/api/v1/${post._id}/like`,
+      {
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userId: loggedInUserId }),
+      }
+    );
     const data = await res.json();
     dispatch(updatePost(data));
   }
@@ -43,7 +46,7 @@ function PostWidget({ post }) {
         <Typography variant="body">{post.content}</Typography>
         {post.image && (
           <img
-            src={`http://localhost:3000/assets/${post.image}`}
+            src={`https://flockup.onrender.com/assets/${post.image}`}
             alt="post"
             width="100%"
             style={{

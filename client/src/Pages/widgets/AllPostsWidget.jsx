@@ -22,9 +22,9 @@ function AllPostsWidget({ userId, isProfile = false }) {
 
   useEffect(() => {
     if (isProfile) {
-      API_URL = `http://localhost:3000/api/v1/${userId}/posts`;
+      API_URL = `https://flockup.onrender.com/api/v1/${userId}/posts`;
     } else {
-      API_URL = `http://localhost:3000/api/v1/allposts`;
+      API_URL = `https://flockup.onrender.com/api/v1/allposts`;
     }
     getAllPosts();
   }, [userId]);

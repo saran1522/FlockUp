@@ -25,7 +25,7 @@ const UserWidget = ({ userId }) => {
 
   const getUser = async () => {
     const response = await fetch(
-      `http://localhost:3000/api/v1/user/${userId}`,
+      `https://flockup.onrender.com/api/v1/user/${userId}`,
       {
         method: "GET",
         headers: {

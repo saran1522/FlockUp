@@ -21,7 +21,7 @@ function Friend({ friendId }) {
 
   async function getFriend() {
     const id = friendId;
-    const res = await fetch(`http://localhost:3000/api/v1/user/${id}`, {
+    const res = await fetch(`https://flockup.onrender.com/api/v1/user/${id}`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -32,7 +32,7 @@ function Friend({ friendId }) {
   async function addRemoveFriend() {
     const id = user._id;
     const res = await fetch(
-      `http://localhost:3000/api/v1/user/${id}/${friendId}`,
+      `https://flockup.onrender.com/api/v1/user/${id}/${friendId}`,
       {
         method: "PATCH",
         headers: { Authorization: `Bearer ${token}` },

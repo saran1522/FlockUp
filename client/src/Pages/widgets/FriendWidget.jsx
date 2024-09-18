@@ -17,17 +17,20 @@ function FriendWidget({ userId, isProfile = false }) {
   const profilesToShow = isProfile ? userFriends : notFriends;
 
   async function getAllUsers() {
-    const res = await fetch("http://localhost:3000/api/v1/user/allusers", {
-      method: "GET",
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    const res = await fetch(
+      "https://flockup.onrender.com/api/v1/user/allusers",
+      {
+        method: "GET",
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
     const data = await res.json();
     setAllUsers(data);
   }
 
   async function getUserFriends() {
     const res = await fetch(
-      `http://localhost:3000/api/v1/user/${userId}/friends`,
+      `https://flockup.onrender.com/api/v1/user/${userId}/friends`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },

@@ -7,7 +7,7 @@ function ProfileImage({ image, size = "60px" }) {
   return (
     <Box height={size} width={size}>
       <img
-        src={`http://localhost:3000/assets/${image}`}
+        src={`https://flockup.onrender.com/assets/${image}`}
         alt="pfp"
         height={size}
         width={size}

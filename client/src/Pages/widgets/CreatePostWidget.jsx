@@ -26,7 +26,7 @@ function CreatePostWidget() {
     if (preview) {
       formData.append("image", image);
     }
-    const res = await fetch("http://localhost:3000/api/v1/createpost", {
+    const res = await fetch("https://flockup.onrender.com/api/v1/createpost", {
       method: "POST",
       headers: { Authorization: `Bearer ${token}` },
       body: formData,

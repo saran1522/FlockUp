@@ -61,7 +61,7 @@ function LoginForm() {
     }
     formData.append("profilePic", values.profilePic.name);
     const registerUserData = await fetch(
-      "http://localhost:3000/api/v1/user/auth/register",
+      "https://flockup.onrender.com/api/v1/user/auth/register",
       {
         method: "POST",
         body: formData,
@@ -76,7 +76,7 @@ function LoginForm() {
 
   async function handleLogin(values, submitProps) {
     const loggedInData = await fetch(
-      "http://localhost:3000/api/v1/user/auth/login",
+      "https://flockup.onrender.com/api/v1/user/auth/login",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
