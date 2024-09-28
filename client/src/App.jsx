@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useMemo } from "react";
@@ -8,6 +8,7 @@ import { themeSettings } from "./theme";
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import ProfliePage from "./Pages/ProfilePage/ProfliePage";
 import HomePage from "./Pages/HomePage/HomePage";
+import Loader from "./components/Loader";
 
 function App() {
   const mode = useSelector((state) => state.mode);
@@ -21,7 +22,15 @@ function App() {
           <Route path="/" element={<LoginPage />} />
           <Route
             path="/home"
-            element={isAuth ? <HomePage /> : <Navigate to="/" />}
+            element={
+              isAuth ? (
+                <Suspense fallback={<Loader />}>
+                  <HomePage />
+                </Suspense>
+              ) : (
+                <Navigate to="/" />
+              )
+            }
           />
           <Route
             path="/profile/:id"

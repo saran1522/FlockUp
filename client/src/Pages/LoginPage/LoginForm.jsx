@@ -218,6 +218,9 @@ function LoginForm() {
             />
           </Box>
           <Box>
+            <p style={{ color: "slategrey" }}>
+              Please wait for sometime after clicking on login
+            </p>
             <Button
               fullWidth
               type="submit"
